@@ -192,13 +192,13 @@ function App() {
         {/* Loading State */}
         {loading && (
           <div className="text-center">
-            <div className={`inline-block p-8 rounded-2xl ${isDarkMode ? 'bg-slate-800 border-slate-700' : 'bg-slate-200 border-slate-300'} border`}>
-              <div className="flex flex-col items-center gap-4">
-                <div className="relative w-20 h-20">
+            <div className={`inline-block p-4 md:p-8 rounded-lg md:rounded-2xl ${isDarkMode ? 'bg-slate-800 border-slate-700' : 'bg-slate-200 border-slate-300'} border`}>
+              <div className="flex flex-col items-center gap-3 md:gap-4">
+                <div className="relative w-16 h-16 md:w-20 md:h-20">
                   <div className="absolute inset-0 rounded-full border-4 border-transparent border-t-blue-500 border-r-purple-500 animate-spin"></div>
                   <div className="absolute inset-2 rounded-full border-4 border-transparent border-b-pink-500 border-l-blue-500 animate-spin" style={{animationDirection: 'reverse'}}></div>
                 </div>
-                <p className={`text-lg font-semibold ${isDarkMode ? 'text-white' : 'text-slate-900'}`}>Loading weather data...</p>
+                <p className={`text-sm md:text-lg font-semibold ${isDarkMode ? 'text-white' : 'text-slate-900'}`}>Loading weather data...</p>
               </div>
             </div>
           </div>
@@ -206,38 +206,38 @@ function App() {
 
         {/* Weather Card */}
         {weather && !loading && (
-          <div className={`${isDarkMode ? 'bg-slate-800 border-slate-700' : 'bg-slate-200 border-slate-300'} rounded-xl md:rounded-2xl p-4 md:p-8 border transition-all duration-700 hover:shadow-2xl animate-in slide-in-from-bottom-8 fade-in duration-700`}>
+          <div className={`${isDarkMode ? 'bg-slate-800 border-slate-700' : 'bg-slate-200 border-slate-300'} rounded-lg md:rounded-2xl p-3 md:p-8 border transition-all duration-700 hover:shadow-2xl animate-in slide-in-from-bottom-8 fade-in duration-700 overflow-hidden`}>
             <div className="text-center">
-              <h2 className={`text-2xl md:text-4xl font-bold mb-4 transition-colors ${isDarkMode ? 'text-white' : 'text-slate-900'}`}>{weather.city}</h2>
-              <div className="flex justify-center items-center mb-4 md:mb-6 animate-bounce">
+              <h2 className={`text-xl md:text-4xl font-bold mb-3 md:mb-4 transition-colors truncate ${isDarkMode ? 'text-white' : 'text-slate-900'}`}>{weather.city}</h2>
+              <div className="flex justify-center items-center mb-3 md:mb-6 animate-bounce">
                 <img 
                   src="/weather.png" 
                   alt={weather.description}
-                  className="w-20 h-20 md:w-32 md:h-32 object-contain"
+                  className="w-16 h-16 sm:w-24 sm:h-24 md:w-32 md:h-32 object-contain"
                 />
               </div>
               <div className="mb-4 md:mb-6">
-                <p className={`text-4xl md:text-6xl font-bold transition-colors ${isDarkMode ? 'text-white' : 'text-slate-900'}`}>{convertTemp(weather.temperature)}{getTempUnit()}</p>
-                <p className={`text-base md:text-xl mt-2 transition-colors ${isDarkMode ? 'text-slate-300' : 'text-slate-700'}`}>{weather.description}</p>
+                <p className={`text-3xl sm:text-4xl md:text-6xl font-bold transition-colors ${isDarkMode ? 'text-white' : 'text-slate-900'}`}>{convertTemp(weather.temperature)}{getTempUnit()}</p>
+                <p className={`text-sm sm:text-base md:text-xl mt-1 md:mt-2 transition-colors break-words ${isDarkMode ? 'text-slate-300' : 'text-slate-700'}`}>{weather.description}</p>
               </div>
 
               {/* Weather Details Grid */}
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4 mt-6 md:mt-8">
-                <div className={`${isDarkMode ? 'bg-slate-700' : 'bg-slate-300'} rounded-lg p-3 md:p-4 transition-all duration-300 active:scale-95 cursor-pointer`}>
-                  <p className={`text-xs md:text-sm mb-2 ${isDarkMode ? 'text-slate-300' : 'text-slate-700'}`}>Humidity</p>
-                  <p className={`text-xl md:text-2xl font-bold transition-colors ${isDarkMode ? 'text-white' : 'text-slate-900'}`}>{weather.humidity}%</p>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-1.5 sm:gap-2 md:gap-4 mt-4 md:mt-8 w-full overflow-hidden">
+                <div className={`${isDarkMode ? 'bg-slate-700' : 'bg-slate-300'} rounded p-2 sm:p-3 md:p-4 transition-all duration-300 active:scale-95 cursor-pointer min-w-0`}>
+                  <p className={`text-xs sm:text-xs md:text-sm mb-1 md:mb-2 truncate ${isDarkMode ? 'text-slate-300' : 'text-slate-700'}`}>Humidity</p>
+                  <p className={`text-lg sm:text-xl md:text-2xl font-bold transition-colors ${isDarkMode ? 'text-white' : 'text-slate-900'}`}>{weather.humidity}%</p>
                 </div>
-                <div className={`${isDarkMode ? 'bg-slate-700' : 'bg-slate-300'} rounded-lg p-3 md:p-4 transition-all duration-300 active:scale-95 cursor-pointer`}>
-                  <p className={`text-xs md:text-sm mb-2 ${isDarkMode ? 'text-slate-300' : 'text-slate-700'}`}>Wind</p>
-                  <p className={`text-xl md:text-2xl font-bold transition-colors ${isDarkMode ? 'text-white' : 'text-slate-900'}`}>{weather.windSpeed} mph</p>
+                <div className={`${isDarkMode ? 'bg-slate-700' : 'bg-slate-300'} rounded p-2 sm:p-3 md:p-4 transition-all duration-300 active:scale-95 cursor-pointer min-w-0`}>
+                  <p className={`text-xs sm:text-xs md:text-sm mb-1 md:mb-2 truncate ${isDarkMode ? 'text-slate-300' : 'text-slate-700'}`}>Wind</p>
+                  <p className={`text-lg sm:text-xl md:text-2xl font-bold transition-colors ${isDarkMode ? 'text-white' : 'text-slate-900'}`}>{weather.windSpeed} mph</p>
                 </div>
-                <div className={`${isDarkMode ? 'bg-slate-700' : 'bg-slate-300'} rounded-lg p-3 md:p-4 transition-all duration-300 active:scale-95 cursor-pointer`}>
-                  <p className={`text-xs md:text-sm mb-2 ${isDarkMode ? 'text-slate-300' : 'text-slate-700'}`}>Pressure</p>
-                  <p className={`text-xl md:text-2xl font-bold transition-colors ${isDarkMode ? 'text-white' : 'text-slate-900'}`}>{weather.pressure} mb</p>
+                <div className={`${isDarkMode ? 'bg-slate-700' : 'bg-slate-300'} rounded p-2 sm:p-3 md:p-4 transition-all duration-300 active:scale-95 cursor-pointer min-w-0`}>
+                  <p className={`text-xs sm:text-xs md:text-sm mb-1 md:mb-2 truncate ${isDarkMode ? 'text-slate-300' : 'text-slate-700'}`}>Pressure</p>
+                  <p className={`text-lg sm:text-xl md:text-2xl font-bold transition-colors ${isDarkMode ? 'text-white' : 'text-slate-900'}`}>{weather.pressure} mb</p>
                 </div>
-                <div className={`${isDarkMode ? 'bg-slate-700' : 'bg-slate-300'} rounded-lg p-3 md:p-4 transition-all duration-300 active:scale-95 cursor-pointer`}>
-                  <p className={`text-xs md:text-sm mb-2 ${isDarkMode ? 'text-slate-300' : 'text-slate-700'}`}>Feels Like</p>
-                  <p className={`text-xl md:text-2xl font-bold transition-colors ${isDarkMode ? 'text-white' : 'text-slate-900'}`}>{convertTemp(weather.feelsLike)}{getTempUnit()}</p>
+                <div className={`${isDarkMode ? 'bg-slate-700' : 'bg-slate-300'} rounded p-2 sm:p-3 md:p-4 transition-all duration-300 active:scale-95 cursor-pointer min-w-0`}>
+                  <p className={`text-xs sm:text-xs md:text-sm mb-1 md:mb-2 truncate ${isDarkMode ? 'text-slate-300' : 'text-slate-700'}`}>Feels</p>
+                  <p className={`text-lg sm:text-xl md:text-2xl font-bold transition-colors ${isDarkMode ? 'text-white' : 'text-slate-900'}`}>{convertTemp(weather.feelsLike)}{getTempUnit()}</p>
                 </div>
               </div>
             </div>
@@ -246,19 +246,19 @@ function App() {
 
         {/* 5-Day Forecast */}
         {weather && !loading && (
-          <div className="mt-6 md:mt-8 animate-in slide-in-from-bottom-8 fade-in duration-700" style={{animationDelay: '200ms'}}>
-            <h3 className={`text-xl md:text-2xl font-bold mb-3 md:mb-4 transition-colors ${isDarkMode ? 'text-white' : 'text-slate-900'}`}>5-Day Forecast</h3>
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-2 md:gap-4">
+          <div className="mt-4 md:mt-8 animate-in slide-in-from-bottom-8 fade-in duration-700 overflow-hidden" style={{animationDelay: '200ms'}}>
+            <h3 className={`text-lg md:text-2xl font-bold mb-3 md:mb-4 transition-colors ${isDarkMode ? 'text-white' : 'text-slate-900'}`}>5-Day Forecast</h3>
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-1.5 sm:gap-2 md:gap-3 w-full">
               {['Mon', 'Tue', 'Wed', 'Thu', 'Fri'].map((day, index) => (
                 <div 
                   key={day} 
-                  className={`${isDarkMode ? 'bg-slate-800 border-slate-700' : 'bg-slate-200 border-slate-300'} rounded-lg md:rounded-xl p-3 md:p-4 border text-center transition-all duration-300 active:scale-95 cursor-pointer animate-in slide-in-from-bottom-6 fade-in duration-700`}
+                  className={`${isDarkMode ? 'bg-slate-800 border-slate-700' : 'bg-slate-200 border-slate-300'} rounded p-2 sm:p-3 md:p-4 border text-center transition-all duration-300 active:scale-95 cursor-pointer animate-in slide-in-from-bottom-6 fade-in duration-700 min-w-0`}
                   style={{animationDelay: `${300 + (index * 100)}ms`}}
                 >
-                  <p className={`font-bold mb-2 text-sm md:text-base transition-colors ${isDarkMode ? 'text-white' : 'text-slate-900'}`}>{day}</p>
-                  <p className="text-2xl md:text-3xl mb-2">⛅</p>
-                  <p className={`text-xs md:text-sm transition-colors ${isDarkMode ? 'text-slate-300' : 'text-slate-700'}`}>High: 75°F</p>
-                  <p className={`text-xs md:text-sm transition-colors ${isDarkMode ? 'text-slate-300' : 'text-slate-700'}`}>Low: 62°F</p>
+                  <p className={`font-bold mb-1 text-xs sm:text-sm md:text-base transition-colors truncate ${isDarkMode ? 'text-white' : 'text-slate-900'}`}>{day}</p>
+                  <p className="text-lg sm:text-2xl md:text-3xl mb-1">⛅</p>
+                  <p className={`text-xs transition-colors ${isDarkMode ? 'text-slate-300' : 'text-slate-700'}`}>75°F</p>
+                  <p className={`text-xs transition-colors ${isDarkMode ? 'text-slate-300' : 'text-slate-700'}`}>62°F</p>
                 </div>
               ))}
             </div>
