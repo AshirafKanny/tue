@@ -98,7 +98,7 @@ function App() {
   }
 
   return (
-    <div className={`min-h-screen transition-all duration-500 ${isDarkMode ? 'bg-slate-900' : 'bg-slate-100'}`}>
+    <div className={`min-h-screen w-full transition-all duration-500 overflow-x-hidden ${isDarkMode ? 'bg-slate-900' : 'bg-slate-100'}`}>
       {/* Header */}
       <header className={`${isDarkMode ? 'bg-slate-800 border-slate-700' : 'bg-slate-200 border-slate-300'} border-b transition-all duration-300`}>
         <div className="max-w-4xl mx-auto px-4 py-4 md:py-6 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
@@ -129,7 +129,7 @@ function App() {
       </header>
 
       {/* Main Content */}
-      <main className="max-w-4xl mx-auto px-3 md:px-4 py-4 md:py-8">
+      <main className="w-full max-w-4xl mx-auto px-2 sm:px-3 md:px-4 py-4 md:py-8 overflow-x-hidden">
         
         {/* Search Section */}
         <div className={`${isDarkMode ? 'bg-slate-800 border-slate-700' : 'bg-slate-200 border-slate-300'} rounded-xl md:rounded-2xl p-4 md:p-6 mb-6 md:mb-8 border transition-all duration-300 hover:shadow-xl`}>
